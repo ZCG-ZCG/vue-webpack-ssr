@@ -1,0 +1,8 @@
+// import './instance'
+// import './lifecycle'
+// import './data-binding'
+// import './computed'
+// import './directive'
+// import './components/define.js'
+import './components/extend.js'
+// import './components/v-model.js'
