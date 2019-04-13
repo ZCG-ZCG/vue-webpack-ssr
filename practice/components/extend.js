@@ -3,10 +3,7 @@ import Vue from 'vue'
 const component = {
   props: {
     active: Boolean,
-    propOne: {
-      type: String,
-      required: true
-    }
+    propOne: String
   },
   template: `
     <div>
@@ -32,12 +29,22 @@ const component = {
 
 // Vue.component('CompOne', component)
 
+const parent = new Vue({
+  name: 'parent'
+})
+
 const component2 = {
+  parent: parent,
   extends: component,
   data () {
     return {
       text: 1
     }
+  },
+  mounted () {
+    console.log('comp2 mounted')
+    console.log(this.$parent.$options.name)
+    // this.$parent.text = 12345
   }
 }
 
@@ -58,11 +65,26 @@ const component2 = {
 // })
 
 new Vue({
+  parent: parent,
+  name: 'Root',
   el: '#root',
   components: {
     Comp: component2
   },
+  data () {
+    return {
+      text: '23333'
+    }
+  },
   template: `
-    <Comp></Comp>
-  `
+    <div>
+      <span>{{text}}</span>
+      <comp></comp>
+    </div>
+  `,
+  mounted () {
+    console.log('comp2 mounted')
+    console.log(this.$parent.$options.name)
+    // this.$parent.text = 12345
+  }
 })
