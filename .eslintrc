@@ -1,0 +1,17 @@
+{
+  "extends": "standard",
+  "plugins": [
+    "html"
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 6
+  },
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "no-new": "off"
+  }
+}
