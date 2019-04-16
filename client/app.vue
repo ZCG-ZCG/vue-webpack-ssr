@@ -3,11 +3,15 @@
     <div id="cover"></div>
     <Header></Header>
     <!-- <todo></todo> -->
-    <router-link to="/app">app</router-link>
+    <router-link to="/app/123">app123</router-link>
+    <router-link to="/app/456">app456</router-link>
     <router-link to="/login">login</router-link>
     <!-- <router-link to="/login/exact">login/exact</router-link> -->
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
     <Footer></Footer>
+    <!-- <router-view name="a"></router-view> -->
   </div>
 </template>
 
@@ -24,6 +28,9 @@ export default {
   },
   data () {
     return {}
+  },
+  mounted () {
+    console.log(this.$route)
   }
 }
 </script>

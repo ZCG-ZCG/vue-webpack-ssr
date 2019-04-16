@@ -19,6 +19,8 @@
       @toggle="toggleFilter"
       @clearAllCompleted="clearAllCompleted"
     />
+
+    <!-- <router-view></router-view> -->
   </section>
 </template>
 
@@ -27,6 +29,31 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  props: ['id'],
+  beforeRouteEnter (to, from, next) {
+    console.log('todo before enter', this)
+    next(vm => {
+      console.log('todo after enter vm.id is ', vm.id)
+    })
+    // next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('todo before leave')
+    // 可以控制页面离开时的行为一种方式
+    // if (window.confirm('想好了吗？宝贝')) {
+    //   next()
+    // }
+    next()
+  },
+  beforeRouteUpdata (to, from, next) {
+    // 在同样的组件被调用 但是路由不同时触发
+    console.log('todo before updata')
+    next()
+  },
+  mounted () {
+    console.log(this.id)
+    console.log('todo mounted')
+  },
   data () {
     return {
       todos: [],
