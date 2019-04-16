@@ -17,7 +17,9 @@ const defalutPlugins = [
     }
   }),
   new VueLoaderPlugin(),
-  new HtmlWebpackPlugin()
+  new HtmlWebpackPlugin({
+    template: path.join(__dirname, './template.html')
+  })
 ]
 
 const devServer = {
@@ -27,7 +29,9 @@ const devServer = {
     errors: true
   },
   // open: true
-  // historyFallback: {}
+  historyApiFallback: {
+    index: '/public/index.html'
+  },
   hot: true
 }
 
