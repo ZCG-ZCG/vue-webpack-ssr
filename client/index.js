@@ -21,6 +21,24 @@ store.registerModule('c', {
   }
 })
 
+store.unregisterModule('c')
+
+// store.watch(state => state.count + 1, (newCount) => {
+//   console.log('new count watched', newCount)
+// })
+
+// store.subscribe((mutation, state) => {
+//   // mutation调用的哪个方法
+//   console.log(mutation.type)
+//   // mutation调用的时候接受的参数
+//   console.log(mutation.payload)
+// })
+
+store.subscribeAction((action, state) => {
+  console.log(action.type)
+  console.log(action.payload)
+})
+
 // 在每次路由跳转之前都会触发的钩子
 router.beforeEach((to, from, next) => {
   // to and from are both route objects. must call `next`.

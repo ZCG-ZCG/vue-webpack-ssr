@@ -13,6 +13,11 @@ export default () => {
     mutations,
     getters,
     actions
+    // plugins: [
+    //   (store) => {
+    //     console.log('myplugin is invocked')
+    //   }
+    // ]
     // modules: {
     //   a: {
     //     namespaced: true, // 在每个不同的模块中可配置相同名字的mutations
