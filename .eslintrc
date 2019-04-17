@@ -3,9 +3,10 @@
   "plugins": [
     "html"
   ],
-  "parser": "vue-eslint-parser babel-eslint",
+  "parser": "vue-eslint-parser",
   "parserOptions": {
     "sourceType": "module",
+    "parser": "babel-eslint",
     "ecmaVersion": 6
   },
   "env": {

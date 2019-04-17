@@ -1,12 +1,25 @@
 import Vue from 'vue'
 import App from './app.vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+
+import createStore from './store/store'
 
 import './assets/style/global.styl'
 
 import createRouter from './config/router'
+
 const router = createRouter()
 Vue.use(VueRouter)
+
+Vue.use(Vuex)
+const store = createStore()
+
+store.registerModule('c', {
+  state: {
+    text: 3
+  }
+})
 
 // 在每次路由跳转之前都会触发的钩子
 router.beforeEach((to, from, next) => {
@@ -35,5 +48,6 @@ router.afterEach((to, from) => {
 
 new Vue({
   router,
+  store,
   render: (h) => h(App)
 }).$mount('#root')
