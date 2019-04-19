@@ -6,6 +6,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const ExtractPlugin = require('extract-text-webpack-plugin')
 const baseconfig = require('./webpack.config.base')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')
 
 // eslint-disable-next-line eqeqeq
 const isDev = process.env.NODE_ENV == 'development'
@@ -19,7 +20,8 @@ const defalutPlugins = [
   new VueLoaderPlugin(),
   new HtmlWebpackPlugin({
     template: path.join(__dirname, './template.html')
-  })
+  }),
+  new VueClientPlugin()
 ]
 
 const devServer = {
