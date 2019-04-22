@@ -6,8 +6,10 @@ const merge = require('webpack-merge')
 const baseconfig = require('./webpack.config.base')
 const ExtractPlugin = require('extract-text-webpack-plugin')
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 let config
+// const isDev = process.env.NODE_ENV === 'development'
 
 config = merge(baseconfig, {
   target: 'node',
@@ -18,7 +20,7 @@ config = merge(baseconfig, {
     filename: 'server-entry.js',
     path: path.join(__dirname, '../server-build')
   },
-  externals: Object.keys(require('../package.json').dependenices),
+  externals: Object.keys(require('../package.json').dependencies),
   module: {
     rules: [
       {
@@ -46,8 +48,18 @@ config = merge(baseconfig, {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
       'process.env.VUE_ENV': "'server'"
     }),
+    new VueLoaderPlugin(),
     new VueServerPlugin()
   ]
 })
+
+// if (isDev) {
+//   config.plugins.push(new VueServerPlugin())
+// }
+// config.resolve = {
+//   alias: {
+//     'model': path.join(__dirname, '../client/model/server-model.js')
+//   }
+// }
 
 module.exports = config

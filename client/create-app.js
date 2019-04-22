@@ -18,9 +18,8 @@ export default () => {
   const app = new Vue({
     router,
     store,
-    render: h => h(app)
+    render: h => h(App)
   })
 
   return { app, router, store }
 }
-

@@ -8,8 +8,8 @@ export default [
   },
   {
     // /app/xxx
-    path: '/app/:id',
-    // path: '/app',
+    // path: '/app/:id',
+    path: '/app',
     // components: {
     //   default: Todo,
     //   a: Login

@@ -2,7 +2,7 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p>{{fullName}} {{counter}}</p>
+    <!-- <p>{{fullName}} {{counter}}</p> -->
     <!-- <p>{{textA}} {{textPlus}}</p>
     <p>{{textC}}</p> -->
     <!-- <todo></todo> -->
